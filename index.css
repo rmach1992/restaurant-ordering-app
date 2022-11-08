@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    font-family: 'Smythe';
+    width: 600px;
+} 
+
+header {
+    background-image: url(./burger.png);
+    color: white;
+}
+
+p {
+    font-size: 79px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-item-btn {
+    border-radius: 50%;
+    border: 1.5px solid #DEDEDE;
+    align-self: center;
+    cursor: pointer;
+}
