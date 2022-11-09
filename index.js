@@ -2,6 +2,16 @@ import { menuArray } from "./data.js";
 
 const mainMenu = document.getElementById('main-menu')
 
+document.addEventListener('click', function(e) {
+    if(e.target.dataset.id) {
+        handleAddClick(e.target.dataset.id)
+    }
+})
+
+function handleAddClick(id){
+    console.log(id)
+}
+
 function getMenuData() {
     let menuHtml = ``
     menuArray.forEach(function(item){
@@ -11,9 +21,9 @@ function getMenuData() {
             <div class="menu-item-info">
                 <h2>${item.name}</h2>
                 <h4>${item.ingredients}</h4>
-                <h3>${item.price}</h3>
+                <h3>$${item.price}</h3>
             </div>
-            <button class="add-item-btn">+</button>
+            <button class="add-item-btn" data-id=${item.id}>+</button>
         </div>
         `
     })
