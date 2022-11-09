@@ -24,3 +24,7 @@ p {
     align-self: center;
     cursor: pointer;
 }
+
+.hidden{
+    display:none;
+}
