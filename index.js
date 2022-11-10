@@ -8,9 +8,9 @@ document.addEventListener('click', function(e) {
     if(e.target.dataset.id) {
         handleAddClick(e.target.dataset.id)
     }
-    // else if (e.target.id === 'remove-btn'){
-    //     removeItem(e.target.parentNode)
-    // }
+    else if (e.target.id === 'remove-btn'){
+        removeItem(e.target.dataset.item)
+    }
 })
 
 function handleAddClick(id){
@@ -40,10 +40,18 @@ function handleAddClick(id){
     render()
 }
 
-//currently removing every single item, also returning NaN
-function removeItem(removeThis) {
-    console.log(removeThis)
-    order.innerHTML = order.innerHTML - removeThis
+function removeItem(itemRemoval) {
+    orderedItems.forEach(function(item){
+        if(item.name === itemRemoval){
+            if(item.count > 1) {
+                item.count--
+            }
+            else {
+                orderedItems.splice(orderedItems.indexOf(item), 1)
+            }
+        }
+    })
+    render()
 }
 
 function getMenuData() {
@@ -74,7 +82,7 @@ function render() {
             order.innerHTML += `
             <div>
                 <h2>${item.name}</h2>
-                <button id="remove-btn">remove</button>
+                <button id="remove-btn" data-item="${item.name}">remove</button>
                 <h4>${item.count}</h4> 
                 <h3>$${item.price}</h3>
             </div>
