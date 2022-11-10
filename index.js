@@ -29,7 +29,11 @@ function handleAddClick(id){
         targetMenuObj.count++
         orderedItems.push(targetMenuObj)
     }
+    calculateTotal()
+    render()
+}
 
+function calculateTotal(){
     let total = 0
     orderedItems.forEach(function(item){
         total += (item.count * item.price)
@@ -37,7 +41,6 @@ function handleAddClick(id){
 
     const orderTotal = document.getElementById('total-price')
     orderTotal.innerHTML = `$${total}`
-    render()
 }
 
 function removeItem(itemRemoval) {
@@ -51,6 +54,7 @@ function removeItem(itemRemoval) {
             }
         }
     })
+    calculateTotal()
     render()
 }
 
